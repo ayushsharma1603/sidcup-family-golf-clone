@@ -1,0 +1,99 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    object-fit: contain;
+    color: aliceblue;
+    font-family: Montserrat, sans-serif;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+
+/*navbar position fixed and z index is highest to bring it to front*/
+.navbar{
+    height: 150px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    padding-left: 80px;
+    position: fixed;
+    z-index: 999;
+}
+
+/* image height is used to decide size of img */
+.navbar img{
+    height: 80px;
+    object-fit: contain;
+}
+
+.navbar h4{
+    text-transform: uppercase;
+}
+
+
+/* to make video in bg use z index =-99 and position fixed */
+#video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 100%;
+    z-index: -99;
+    position: fixed;
+}
+
+
+/* main contents all the pages of website every page is 100% height and 100% width position is relative to make its child position setting easy */
+.main{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+#page1{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+}
+
+#page1 h1{
+    text-transform: uppercase;
+    font-size: 6em;
+    font-weight: 900;
+    position: relative;
+}
+
+
+/* tp produce that stroke effect on heading*/
+#page1 h1::before{
+    content: "Eat. Drink. Play.";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    color: black;
+    z-index: -1;
+    -webkit-text-stroke: 2px rgb(148, 182, 10);
+}
+
+
+#page1 h2{
+    text-transform: uppercase;
+    font-size: 1.8em;
+    font-weight: 900;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#page1 p{
+    font-size: 22px;
+    width: 43%;
+}
