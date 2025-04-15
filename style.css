@@ -2,10 +2,27 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    object-fit: contain;
-    color: aliceblue;
-    font-family: Montserrat, sans-serif;
+    font-family: 'montserrat', sans-serif;
+    overflow-x: hidden;
+    color: white;
+    scroll-behavior: smooth;
 }
+
+/* For the entire page scrollbar */
+::-webkit-scrollbar {
+    width: 14px;
+    
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(148, 182, 10); /* Color of the scrollbar thumb */
+    border-radius: 20px 
+}
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent; /* Color of the scrollbar track */
+  }
+
 html,body{
     height: 100%;
     width: 100%;
@@ -18,22 +35,35 @@ html,body{
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 40px;
-    padding-left: 80px;
+    gap: 50px;
+    padding-left: 150px;
     position: fixed;
-    z-index: 999;
+    z-index: 99;
 }
 
 /* image height is used to decide size of img */
 .navbar img{
-    height: 80px;
+    height: 75px;
     object-fit: contain;
+    transition: transform 0.5s ease-in-out;
 }
+
+.navbar img:hover{
+    transform: scale(1.1);
+}
+
 
 .navbar h4{
     text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
 }
 
+.navbar h4:hover{
+
+    color: rgb(148, 182, 10);
+
+}
 
 /* to make video in bg use z index =-99 and position fixed */
 #video{
@@ -41,7 +71,7 @@ html,body{
     width: 100%;
     object-fit: cover;
     opacity: 100%;
-    z-index: -99;
+    z-index: -1;
     position: fixed;
 }
 
@@ -51,17 +81,17 @@ html,body{
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.37);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 #page1{
     height: 100vh;
-    width: 100vw;
+    width: 100%;
+    position: relative; 
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: relative;
     text-align: center;
 }
 
@@ -73,7 +103,7 @@ html,body{
 }
 
 
-/* tp produce that stroke effect on heading*/
+/* to produce that stroke effect on heading*/
 #page1 h1::before{
     content: "Eat. Drink. Play.";
     position: absolute;
@@ -96,4 +126,174 @@ html,body{
 #page1 p{
     font-size: 22px;
     width: 43%;
+    z-index: 10;
+}
+
+
+#arc{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    align-self: flex-start;
+    bottom: 0%;
+    left: -2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    
+}
+
+#arc a{
+    text-decoration: none;
+    cursor: default;
+    
+}
+
+#arrow{
+    
+    position: relative;
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+    border: 3px solid  rgb(148, 182, 10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    transition: all 0.5s ease-in-out;
+}
+
+#arrow img{
+    object-fit: contain;
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(100%);
+}
+
+ #arc:hover{
+    #arrow{
+        transform: scale(0.35);
+        background-color: rgb(148, 182, 10);
+    }
+    
+}
+
+#page2{
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+}
+
+/* pointer events property is resolving the issue that blocking the scroll
+
+the browser needs to figure out which element in that stack you're interacting with. This process is called event targeting or hit testing.
+
+Default Event Handling: By default, most HTML elements are "pointer-events: auto;". This means they are targets for mouse events. So, even though your #cursor and #cursorback were primarily visual elements moving with the mouse, the browser still recognized them as elements that the mouse was "over."
+*/
+
+#cursor{
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    position: fixed;
+    z-index: 10;
+    background-color: rgb(148, 182, 10);
+    z-index: 101;
+    pointer-events: none;
+}
+
+#cursorback{
+    background-color: rgba(148, 182, 10, 0.774);
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    z-index: 9;
+    position: fixed;
+    filter: blur(150px);
+    pointer-events: none;
+}
+
+#scroller{
+    width: 100%;
+    white-space: nowrap;
+    text-transform: uppercase;
+    padding-top: 100px;
+    overflow-x: scroll;
+}
+#scroller h4{
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-size: 100px;
+    font-weight: 900px;
+    /* font-family: 'gilroy'; */
+    margin-right: 15px;
+    -webkit-text-stroke: 1px white;
+    color: transparent;
+    transition: color 0.5s ease-in-out;
+    animation: scrl 5s timing-function delay iteration-count direction fill-mode;
+}
+
+#scroller h4:hover{
+    color: rgb(148, 182, 10);
+    -webkit-text-stroke:1px rgb(148, 182, 10);
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+.scroller-1{
+    display: inline-block;
+    animation: scroll 35s linear 0s infinite;
+}
+.scroller-1 h4{
+    display: inline-block;
+}
+
+
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#aboutuscontainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 50vh;
+    overflow: hidden;
+    padding-left: 7vw;
+    padding-right: 7vw; 
+    gap: 10vw;
+    text-align: center;
+    /* background-color: rebeccapurple; */
+}
+
+#aboutuscontainer h1{
+    font-size: 3em;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 60px;
+}
+
+#aboutuscontainer p{
+    font-size: 1.2em;
+    /* font-weight: 900; */
+    line-height: 2.2em;
+    text-transform: capitalize;
+
+}
+
+#aboutuscontainer img{
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    transform: scale(1.7);
+
 }
