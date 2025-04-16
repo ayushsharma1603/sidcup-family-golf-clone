@@ -42,7 +42,7 @@ gsap.to(".main",{
         scroller:".main",
         start:"top 75%",
         // markers:true,
-        scrub:2,
+        scrub:1,
         end:"top 30%"
 
     }
@@ -64,7 +64,7 @@ navH.forEach((nav)=>{
 
     nav.addEventListener('mouseout',function(){
         crsr.style.backgroundColor='rgb(148, 182, 10)'
-        // crsr.style.transition="all 0.3s ease-in-out"
+        // crsr.style.transition="transform 0.3s ease-in-out"
         crsr.style.height='20px'
         crsr.style.width='20px'
         crsr.style.border="0px"
