@@ -26,6 +26,7 @@
 html,body{
     height: 100%;
     width: 100%;
+
 }
 
 /*navbar position fixed and z index is highest to bring it to front*/
@@ -268,8 +269,7 @@ Default Event Handling: By default, most HTML elements are "pointer-events: auto
     width: 100%;
     height: 80%;
     /* overflow: hidden; */
-    padding-left: 7%;
-    padding-right: 7%; 
+    padding: 0 7%;
     gap: 9%;
     text-align: center;
     margin-top: 17vh;
@@ -280,13 +280,13 @@ Default Event Handling: By default, most HTML elements are "pointer-events: auto
     font-size: 3em;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 #aboutuscontainer p{
     font-size: 1.2em;
-    /* font-weight: 900; */
-    line-height: 2.2em;
+    font-weight: 500;
+    line-height: 2em;
     text-transform: capitalize;
 
 }
@@ -321,11 +321,13 @@ Default Event Handling: By default, most HTML elements are "pointer-events: auto
 }
 
 #cards-container{
+    height: 63vh;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 3vw;
     z-index: 10;
+    overflow: hidden;
 }
 
 .card{
@@ -335,7 +337,64 @@ Default Event Handling: By default, most HTML elements are "pointer-events: auto
     background-color: rgb(148, 182, 10);
     border-radius: 40px;
     z-index: 10;
-    
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+}
+.card:hover{
+    transform: scale(1.05);
+    .overlay{
+        opacity: 1;
+        /* transform: scale(0.9); */
+        background-color: rgb(148, 182, 10);
+    }
+}
+
+.overlay{
+    padding: 0 40px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.overlay h1{
+    font-size: 2em;
+    font-weight: 900;
+    margin: 50px 0;
+    /* white-space: nowrap; */
+}
+
+.overlay p{
+    line-height: 30px;
+
+}
+
+.overlay h1, .overlay p{
+    color: black;
+}
+
+.card:hover{
+    transform: rotate3d(1,1,0,-15deg);
+}
+
+#card1{
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-toptracer-300x200.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+    background-repeat: no-repeat;
+}
+
+#card2{
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/hero-4-1024x1024.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+    background-repeat: no-repeat;
+}
+
+#card3{
+    background-image: url("https://eiwgew27fhz.exactdn.com/wp-content/uploads/2023/02/home-lessons-1024x682.jpg?strip=all&lossy=1&sharp=1&ssl=1");
+    background-repeat: no-repeat;
 }
 
 .overlayimg{
@@ -372,7 +431,7 @@ Default Event Handling: By default, most HTML elements are "pointer-events: auto
     text-align: center;
     font-size: 1.5em;
     width: 100vw;
-    background: linear-gradient(60deg,rgb(148, 182, 10),rgb(186, 218, 7),rgb(99, 230, 5));
+    background: linear-gradient(to right top,rgb(148, 182, 10),rgb(186, 218, 7),rgb(99, 230, 5));
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -434,13 +493,161 @@ Default Event Handling: By default, most HTML elements are "pointer-events: auto
 
 }
 
-#radioitext{
+#radiotext{
     display: flex;
-    text-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    text-align: left;
     flex-direction: column;
     height: 80%;
-    width: 40vh;
+    gap: 30px;
+    width: 45vw;
+}
+
+#radiotext p{
+    font-size: 1.5em;
+    line-height: 40px;
+}
+
+#radiotext h1{
+    text-transform: uppercase;
+    font-size: 4em;
+}
+
+#page4{
+    /* height: 100vh; */
+    width: 100%;
+}
+
+#quote img{
+    height: 90px;
+    width: 100%;
+    /* position: relative; */
+}
+
+#quote1{
+    
+}
+
+#quote{
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#quote div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    width: 60%;
+}
+#quote p{
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+#quote img{
+    position: absolute;
+}
+
+#quote1{
+    top: 2%;
+    right: 40%;
+    
+}
+
+#quote2{
+    bottom: 2%;
+    left: 40%;
+}
+
+#nextquote{
+    transition: all 0.4s ease-in-out;
+}
+
+#boxes{
+    /* background-color: pink; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vw;
+    gap: 2vw;
+    position: relative;
+}
+#boxes h1{
+    position: absolute;
+    text-align: center;
+    top: 5%;
+    text-transform: uppercase;
+    font-size: 5.5em;
+    color: black;
+    -webkit-text-stroke: 1px white;
+    font-weight: 900;
+}
+/* #box1{
+    height: 12vw;
+    width: 28vw;
+}
+
+#box2{
+    height: 12vw;
+    width: 28vw;
+}
+
+#box3{
+    height: 12vw;
+    width: 28vw;
+
+
+} */
+
+.c{
+    height: 12vw;
+    width: 28vw;
+    background-color: rgb(186, 218, 7);
+    border-radius: 20px;
+    /* overflow-y: hidden; */
+    z-index: 10;
+    position: relative;
+    text-align: center;
+}
+
+.over{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+#boxes .c .over img{
+        /* padding: 0 40px; */
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: all 0.5s ease-in-out;
+}
+#boxes .c .over img:hover{
+    opacity: 1;
+}
+
+#boxes .c h4{
+    position: absolute;
+    text-transform: uppercase;
+    top: 40%;
+    left: 13%;
+    font-size: 30px;
+    font-weight: 800;
+    color: black;
+    transition: all 0.5s ease-in-out;
+}
+
+#page4{
+    /* height: auto; */
 }
